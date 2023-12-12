@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -44,7 +45,7 @@ public class ChatServer {
 
             }
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             // TODO: handle exception
             e.printStackTrace(); // 음...?
         } finally {
@@ -53,7 +54,7 @@ public class ChatServer {
                 socket.close(); // 소켓 닫기
                 serverSocket.close(); // 서버 소켓 닫기
                 System.out.println("연결종료");
-            } catch (Exception e) { // 닫기 작업 중 오류 발생 시 작업
+            } catch (IOException e) { // 닫기 작업 중 오류 발생 시 작업
                 // TODO: handle exception
                 System.out.println("소켓통신에러");
             }
